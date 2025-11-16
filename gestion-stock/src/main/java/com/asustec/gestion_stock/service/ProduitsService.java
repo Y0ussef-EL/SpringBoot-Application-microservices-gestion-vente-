@@ -15,4 +15,16 @@ public class ProduitsService {
     public List<Produits> getAllProduits() {
         return produitsRepository.findAll();
     }
+
+    public String removeSoldProduit(Long codePdt, Integer qtePdtSld) {
+        Produits soldPdt = produitsRepository.findByCodePdt(codePdt).orElseThrow(()->new RuntimeException("produit non disponible en stock"));
+        if(qtePdtSld>soldPdt.getQtePdt()){
+            throw new RuntimeException("La Quantité demandée dépasse celle disponible en stock");
+        }
+        else {
+        soldPdt.setQtePdt(soldPdt.getQtePdt() - qtePdtSld);
+        produitsRepository.save(soldPdt);
+        }
+        return "success";
+    }
 }

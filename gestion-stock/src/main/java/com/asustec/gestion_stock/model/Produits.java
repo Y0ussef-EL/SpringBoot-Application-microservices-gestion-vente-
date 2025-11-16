@@ -8,41 +8,42 @@ public class Produits {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Long CodeStock;
-    private Long CodePdt;
-    private int QtePdt;
+    private Long codeStock;
+    @Column(unique = true, nullable = false)
+    private Long codePdt;
+    private int qtePdt;
 
 
     public Produits() {
     }
 
-    public Produits(Long CodePdt, int QtePdt) {
-        this.CodePdt = CodePdt;
-        this.QtePdt = QtePdt;
+    public Produits(Long CodePdt, int qtePdt) {
+        this.codePdt = CodePdt;
+        this.qtePdt = qtePdt;
     }
 
     public Long getCodeStock() {
-        return CodeStock;
+        return codeStock;
     }
 
     public void setCodeStock(Long codeStock) {
-        CodeStock = codeStock;
+        this.codeStock = codeStock;
     }
 
     public Long getCodePdt() {
-        return CodePdt;
+        return codePdt;
     }
 
     public void setCodePdt(Long codePdt) {
-        CodePdt = codePdt;
+        this.codePdt = codePdt;
     }
 
     public int getQtePdt() {
-        return QtePdt;
+        return qtePdt;
     }
 
     public void setQtePdt(int qtePdt) {
-        QtePdt = qtePdt;
+        this.qtePdt = qtePdt;
     }
 
 
